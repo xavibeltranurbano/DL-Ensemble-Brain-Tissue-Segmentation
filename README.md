@@ -4,9 +4,9 @@ Authors: Xavier Beltran Urbano and [Frederik Hartmann](https://github.com/Freder
 ## Dataset
 The dataset used in this study is the IBSR18, containing 18 T1-weighted scans of normal subjects from the Internet Brain Segmentation Repository (IBSR). It includes preprocessed scans with a 1.5 mm slice thickness and ground truth segmentation for white matter (WM), grey matter (GM), and cerebrospinal fluid (CSF).
 <p align="center">
-  <img src="img/ISBR18_Dataset.png" alt="Fig 1. Example of the IBSR18 Dataset" width="800"/>
+  <img src="img/ISBR18_Dataset.png" alt="Example of the IBSR18 Dataset" width="800"/>
   <br>
-  <em>Example of the IBSR18 Dataset</em>
+  <em>Fig 1. Example of the IBSR18 Dataset</em>
 </p>
 
 ## Methodology
@@ -28,6 +28,7 @@ Our approach employs an ensemble of 2D and 3D convolutional neural networks for 
 | 3D U-Net                  | 0.882    | **0.942**| **0.942**| **0.922**| 16.202 | 12.864 | 11.574 | 13.486  |
 | 3D Seg-Res-Net            | 0.888    | 0.935   | 0.937   | 0.921     | 15.198 | 10.367 |  9.541 | 11.702  |
 | SynthSeg                  | 0.812    | 0.829   | 0.888   | 0.843     | 29.822 |  **8.353** | 12.066 | 16.747  |
+
 *Table 1: Single model results on the validation set.*
 
 ### Ensemble Results
@@ -44,6 +45,7 @@ Our approach employs an ensemble of 2D and 3D convolutional neural networks for 
 | The Coronal + Axial Maximum         | 0.893    | 0.938   | 0.937   | 0.923     | 21.901 | 10.270 | 9.370  | 13.847  |
 | The Coronal + Axial Majority        | 0.894    | 0.940   | 0.938   | 0.924     | 16.611 | 9.811  | 8.653  | 11.692  |
 | The Multidimensional Ensemble Mean  | **0.904**    | **0.945**   | **0.948**   | **0.932**     | **11.918** | **8.730**  | **7.660**  | **9.436**   |
+
 *Table 2: Ensemble results on the validation set.*
 
 ## Conclusion
