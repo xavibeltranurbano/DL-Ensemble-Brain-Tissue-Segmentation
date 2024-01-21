@@ -10,7 +10,6 @@ import nibabel as nib
 import numpy as np
 import random
 import tensorflow as tf
-from dataAugmentation import AugmentedDataGenerator
 
 class Preprocessing():
     def __init__(self,data_aug,norm_intensity):

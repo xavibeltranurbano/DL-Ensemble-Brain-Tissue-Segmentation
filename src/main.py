@@ -6,7 +6,6 @@
 
 from utils import Utils
 from networks.unet import Unet
-from networks.segnet import SegNet
 from networks.segresnet import SegResNet
 import os
 from metrics import *
@@ -36,15 +35,15 @@ def run_program(config,networkName, params):
         history = model.fit(trainGenerator, validation_data=valGenerator, epochs=epochs, verbose=1,
                            callbacks=[model_checkpoint_callback, reduce_lr_callback, early_stopping_callback])
 
-        model.save(f"/notebooks/results/{networkName}/1/Best_Model.h5")
+        model.save(f"results/{networkName}/1/Best_Model.h5")
         # Plot the results and save the image
-        utils.save_training_plots(history, f"/notebooks/results/{networkName}/training_plots.png")
+        utils.save_training_plots(history, f"results/{networkName}/training_plots.png")
         # Predict test set
         loss,acc=model.evaluate(valGenerator,verbose=1)
         print(f"\nTest: Dice= {acc}, Loss= {loss}")
     
 if __name__ == "__main__":
-    imgPath = '/notebooks/data'
+    imgPath = 'data'
     # Nertwork Unet
     networkName="SegResNet"
     
@@ -58,7 +57,7 @@ if __name__ == "__main__":
     }
     
     # Create folder for this experiment
-    os.makedirs(f"/notebooks/results/{networkName}_##PROVAv3", exist_ok=True)
+    os.makedirs(f"results/{networkName}", exist_ok=True)
     
     # Configuration of the experiment
     config=Configuration(**params)

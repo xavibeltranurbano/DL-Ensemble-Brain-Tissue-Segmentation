@@ -17,8 +17,8 @@ class Utils:
     @staticmethod
     def allCallbacks(networkName):
         # Save weights of each epoch
-        os.makedirs(f"/notebooks/results/{networkName}/1", exist_ok=True)
-        pathWeights=f"/notebooks/results/{networkName}/1"
+        os.makedirs(f"results/{networkName}/1", exist_ok=True)
+        pathWeights=f"results/{networkName}/1"
         checkpoint_path = pathWeights+"/epoch-{epoch:02d}.h5"
         model_checkpoint_callback = ModelCheckpoint(
         filepath=checkpoint_path,

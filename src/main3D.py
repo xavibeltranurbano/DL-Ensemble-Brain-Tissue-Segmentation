@@ -13,6 +13,7 @@ from networks.segresnet import SegResNet
 from dataGenerator3D import BratsDataGenerator3D
 from utils import Utils
 from metrics import *
+import os
 
 
 def run_program(networkName, params):
@@ -29,9 +30,7 @@ def run_program(networkName, params):
     model = SegResNet(input_shape=(256,128,256,1), spatial_dims=3, init_filters=16, in_channels=1, out_channels=4)
     model.summary()
     model.compile(optimizer=Adam(learning_rate=0.0004),loss=categoricalCrossentropy,metrics=[mean_dice_coef,csf,gm,wm,bckgrd])
-    #model.load_weights('/notebooks/results/Unet_Coronal/1/Best_Model.h5',by_name=True, skip_mismatch=True)
-    networkName=networkName+"_#####3D"
-    
+    #model.load_weights('/notebooks/results/Unet_Coronal/1/Best_Model.h5',by_name=True, skip_mismatch=True)    
     
     with tf.device('/GPU:0'):
         # Train the model
@@ -40,9 +39,9 @@ def run_program(networkName, params):
         history = model.fit(trainGenerator, validation_data=valGenerator, epochs=epochs, verbose=1,
                            callbacks=[model_checkpoint_callback, reduce_lr_callback, early_stopping_callback])
 
-        model.save(f"/notebooks/results/{networkName}/1/Best_Model.h5")
+        model.save(f"results/{networkName}/1/Best_Model.h5")
         # Plot the results and save the image
-        utils.save_training_plots(history, f"/notebooks/results/{networkName}/training_plots.png") 
+        utils.save_training_plots(history, f"results/{networkName}/training_plots.png") 
 
         # Predict test set
         loss,acc=model.evaluate(valGenerator,verbose=1)
@@ -52,7 +51,7 @@ def run_program(networkName, params):
         utils.sendEmailResults(acc,loss)
     
 if __name__ == "__main__":
-    datasetFolder = '/notebooks/data'
+    datasetFolder = 'data'
     # Nertwork Unet
     networkName="SegResNet"
     
@@ -70,7 +69,7 @@ if __name__ == "__main__":
     }
     
     # Create folder for this experiment
-    os.makedirs(f"/notebooks/results/{networkName}_#####3D", exist_ok=True)
+    os.makedirs(f"results/{networkName}", exist_ok=True)
     
     #Run experiment
     run_program(networkName,params)
