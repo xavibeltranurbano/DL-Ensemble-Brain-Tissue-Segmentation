@@ -1,5 +1,40 @@
 # Enhancing Brain Tissue Analysis: A 2D and 3D CNN Ensemble Approach for MRI Segmentation
-Authors: Xavier Beltran Urbano and [Frederik Hartmann](https://github.com/Frederik-Hartmann)
+Authors: Xavier Beltran Urbano and [Frederik Hartmann](https://frederik-hartmann.github.io/)
+
+## Setting Up the Project
+1. Clone the project:
+  ```bash
+  git https://github.com/xavibeltranurbano/DL-ENSEMBLE-BRAIN-TISSUE-SEGMENTATION.git
+  cd DL-ENSEMBLE-BRAIN-TISSUE-SEGMENTATION
+  ```
+2. Using a virtual environment is strongly recommended.
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+## Reproducing the Results
+The project utilizes the following folder structure
+```
+DL-ENSEMBLE-BRAIN-TISSUE-SEGMENTATION/
+├── data
+│   └── Training_Set
+│       ├── IBSR_01
+│       │   ├── IBSR_01.nii.gz
+│       │   └── IBSR_01_seg.nii.gz
+│       ├── IBSR_03
+│       └── ...
+├── src
+│   ├── configuration.py
+│   ├── ...
+│   ├── networks
+│   │   ├── denseunet.py
+│   │   └── ...
+To reproduce the results, execute the following scripts:
+```bash
+python src/main.py
+```
+This will train and validate the model specified in "networkName" and store it in results/.
 
 ## Dataset
 The dataset used in this study is the IBSR18, containing 18 T1-weighted scans of normal subjects from the Internet Brain Segmentation Repository (IBSR). It includes preprocessed scans with a 1.5 mm slice thickness and ground truth segmentation for white matter (WM), gray matter (GM), and cerebrospinal fluid (CSF).
