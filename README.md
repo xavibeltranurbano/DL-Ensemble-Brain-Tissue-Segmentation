@@ -15,7 +15,7 @@ pip install -r requirements.txt
 ```
 ## Reproducing the Results
 The project utilizes the following folder structure
-```
+```bash
 DL-ENSEMBLE-BRAIN-TISSUE-SEGMENTATION/
 ├── data
 │   └── Training_Set
@@ -30,6 +30,7 @@ DL-ENSEMBLE-BRAIN-TISSUE-SEGMENTATION/
 │   ├── networks
 │   │   ├── denseunet.py
 │   │   └── ...
+```
 To reproduce the results, execute the following scripts:
 ```bash
 python src/main.py
