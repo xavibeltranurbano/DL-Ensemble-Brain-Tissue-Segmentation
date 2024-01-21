@@ -4,8 +4,8 @@ Authors: Xavier Beltran Urbano and [Frederik Hartmann](https://frederik-hartmann
 ## Setting Up the Project
 1. Clone the project:
   ```bash
-  git https://github.com/xavibeltranurbano/DL-ENSEMBLE-BRAIN-TISSUE-SEGMENTATION.git
-  cd DL-ENSEMBLE-BRAIN-TISSUE-SEGMENTATION
+  git https://github.com/xavibeltranurbano/DL-Ensemble-Brain-Tissue-Segmentation.git
+  cd DL-Ensemble-Brain-Tissue-Segmentation
   ```
 2. Using a virtual environment is strongly recommended.
 ```bash
@@ -16,7 +16,7 @@ pip install -r requirements.txt
 ## Reproducing the Results
 The project utilizes the following folder structure
 ```bash
-DL-ENSEMBLE-BRAIN-TISSUE-SEGMENTATION/
+DL-Ensemble-Brain-Tissue-Segmentation/
 ├── data
 │   └── Training_Set
 │       ├── IBSR_01
